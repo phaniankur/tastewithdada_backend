@@ -38,11 +38,13 @@ router.post('/daily', async(req,res)=>{
 
     //Write rows TO sheet
     const { month,openDate, gasUseDate, gasPrice, electricity, Firoz, Sanjeeb, chickenPrice, chickenInKG, dailyExpense, dailySale } = req.body;
-
+    let d = new Date();
+    let year = d.getFullYear();
+    const sheetName = month + year;
     await googleSheets.spreadsheets.values.append({
         auth,
         spreadsheetId,
-        range: `${month}!A:L`,
+        range: `${sheetName}!A:L`,
         valueInputOption: "USER_ENTERED",
         resource: {
             values: [
