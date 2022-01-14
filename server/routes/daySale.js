@@ -37,7 +37,7 @@ router.post('/daily', async(req,res)=>{
     // })
 
     //Write rows TO sheet
-    const { month,openDate, gasUseDate, gasPrice, electricity, Firoz, Sanjeeb, chickenPrice, chickenInKG, dailyExpense, dailySale } = req.body;
+    const { month, openDate, gasUseDate, gasPrice, electricity, Firoz, Sanjeeb, chickenPrice, chickenInKG, coal, dailyExpense, dailySale } = req.body;
     let d = new Date();
     let year = d.getFullYear();
     const sheetName = month + year;
@@ -48,7 +48,7 @@ router.post('/daily', async(req,res)=>{
         valueInputOption: "USER_ENTERED",
         resource: {
             values: [
-                [openDate, gasUseDate, gasPrice, electricity, Firoz, Sanjeeb, chickenPrice, chickenInKG, dailyExpense, dailySale]
+                [openDate, gasUseDate, gasPrice, electricity, Firoz, Sanjeeb, chickenPrice, chickenInKG, coal, dailyExpense, dailySale]
             ],
 
         }
